@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+  <title>My Page Title</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="user.html">User Information</a>
+                <a class="nav-link active" href="books.html">Books</a>
+            </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <a href="https://www.penguinrandomhouse.ca/books/158400/the-god-of-small-things-by-arundhati-roy/9780735273283" target="_blank"><img src="img/god-of-small things.jpeg" width = 240px class="book-image"/></a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <a href="https://www.amazon.com/Kite-Runner-KHALED-HOSSEINI/dp/1408850257" target="_blank"><img src="img/the-kite-runner.jpg"  class="book-image"/></a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <a href="https://en.wikipedia.org/wiki/The_Immortals_of_Meluha#/media/File:The_Immortals_Of_Meluha.jpg" target="_blank"><img src="img/amish.jpg"  class="book-image"/></a>
+          </div>
+    </div>
+        <table class="table table-hover table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Year</th>
+                    <th scope="col">Publisher Name</th>
+                    <th scope="col">Pages</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <th scope="row">The God of Small Things</th>
+                    <td>Arundhati Roy</td>
+                    <td>1997</td>
+                    <td>IndiaInk</td>
+                    <td>352</td>
+                    <td>$3.59</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">The Kite Runner</th>
+                    <td>Khaled Hosseini</td>
+                    <td>2013</td>
+                    <td>Bloomsbury</td>
+                    <td>371</td>
+                    <td>$5.46</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">The Immortals of Meluha</th>
+                    <td>Amish</td>
+                    <td>2012</td>
+                    <td>Westland</td>
+                    <td>438</td>
+                    <td>$13.99</td>
+                </tr>
+    
+                <tr>
+                    <th scope="row">Inferno</th>
+                    <td>Dan Brown</td>
+                    <td>2013</td>
+                    <td>Doubleday</td>
+                    <td>480</td>
+                    <td>$13.98</td>
+                </tr>
+
+            </tbody>
+        </table>
+        <br>
+        <p class="descriptive-text">Add a record</p>
+        <br>
+        <form>
+            <div class="form-group">
+              <label for="formGroupExampleInput">Title</label>
+              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter title of the book">
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput2">Author</label>
+              <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter the name of the author">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Year</label>
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter the year in which the book was published">
+              </div>
+              <div class="form-group">
+                <label for="formGroupExampleInput2">Publisher</label>
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter the name of the publisher">
+              </div>
+              <div class="form-group">
+                <label for="formGroupExampleInput2">Pages</label>
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter the number of pages in the book">
+              </div>
+              <div class="form-group">
+                <label for="formGroupExampleInput2">Price</label>
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter the price of the book">
+              </div>
+              <br>
+              <div class="form-group">
+                <button type="submit" class="btn" id="sign-in-button">Submit</button>
+              </div>
+          </form>
+    </div>
+</body>
+</html>
