@@ -34,15 +34,15 @@
             <a href="https://en.wikipedia.org/wiki/The_Immortals_of_Meluha#/media/File:The_Immortals_Of_Meluha.jpg" target="_blank"><img src="img/amish.jpg"  class="book-image"/></a>
           </div>
     </div>
-        <table class="table table-hover table-dark">
+        <table id="booksTable" class="table table-hover table-dark">
             <thead>
                 <tr>
-                    <th scope="col">Title</th>
-                    <th scope="col">Author</th>
-                    <th scope="col">Year</th>
-                    <th scope="col">Publisher Name</th>
-                    <th scope="col">Pages</th>
-                    <th scope="col">Price</th>
+                    <th scope="col" class="table-header">Title</th>
+                    <th scope="col" class="table-header">Author</th>
+                    <th scope="col" class="table-header">Year</th>
+                    <th scope="col" class="table-header">Publisher Name</th>
+                    <th scope="col" class="table-header">Pages</th>
+                    <th scope="col" class="table-header">Price</th>
                 </tr>
             </thead>
 
@@ -119,5 +119,9 @@
               </div>
           </form>
     </div>
+    <script src="js/tablesort.js"></script>
+    <script>
+      new Tablesort(document.getElementById('booksTable'));
+    </script>
 </body>
 </html>
