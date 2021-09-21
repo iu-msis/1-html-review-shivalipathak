@@ -144,4 +144,19 @@
   .table-header:hover{
     background-color: teal;
   }
+
+  .user-image{
+    width: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .user-data{
+    margin-top: 20px;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    color: #e6661c;
+  }
   
