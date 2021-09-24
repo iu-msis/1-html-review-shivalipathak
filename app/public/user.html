@@ -35,6 +35,9 @@
                     <div class="col col-lg-4 col-md-4 col-sm-4 col-xs-4">
                     </div>
                     <div id="appRandom" class="col col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <form v-on:submit.prevent="fetchUserData">
+                            <button type="submit" id="refresh-button">Refresh</button>
+                        </form>
                         <img v-bind:src="person.picture.large" class="user-image">
                         <p class="user-data">Name: {{ person.name.first }} {{ person.name.last }}</p>
                         <p class="user-data">Date of Birth: {{ prettyBirthday }}</p>
