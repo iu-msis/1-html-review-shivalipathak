@@ -18,16 +18,20 @@
       word-wrap: break-word;
   }
   
-  #sign-in-button {
+  #refresh-button {
       color: white;
       background-color: #2fafc9;
       border: none;
+      border-radius: 2px;
       font-weight: bold;
       margin-right: 15px;
-      margin-left: 47%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px;
+      display: block;
   }
   
-  #sign-in-button:hover{
+  #refresh-button:hover{
     background-color: aliceblue;
     color:#2fafc9;
   }
