@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/vue@next"></script>
 </head>
 <body>
     <header>
@@ -23,7 +24,7 @@
         </nav>
     </header>
     <div class="container-fluid">
-    <div class="row">
+      <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
           <a href="https://www.penguinrandomhouse.ca/books/158400/the-god-of-small-things-by-arundhati-roy/9780735273283" target="_blank"><img src="img/god-of-small things.jpeg" width = 240px class="book-image"/></a>
         </div>
@@ -33,8 +34,10 @@
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <a href="https://en.wikipedia.org/wiki/The_Immortals_of_Meluha#/media/File:The_Immortals_Of_Meluha.jpg" target="_blank"><img src="img/amish.jpg"  class="book-image"/></a>
           </div>
-    </div>
-        <table id="booksTable" class="table table-hover table-dark">
+      </div>
+      <div id="bookApp">
+        <div class="row">
+          <table id="booksTable" class="table table-hover table-dark">
             <thead>
                 <tr>
                     <th scope="col" class="table-header">Title</th>
@@ -46,82 +49,61 @@
                 </tr>
             </thead>
 
-            <tbody>
+            <tbody v-for="b in books">
                 <tr>
-                    <th scope="row">The God of Small Things</th>
-                    <td>Arundhati Roy</td>
-                    <td>1997</td>
-                    <td>IndiaInk</td>
-                    <td>352</td>
-                    <td>$3.59</td>
+                    <th scope="row">{{ b.title }}</th>
+                    <td>{{ b.author }}</td>
+                    <td>{{ b.year_published }}</td>
+                    <td>{{ b.publisher }}</td>
+                    <td>{{ b.pages }}</td>
+                    <td>{{ b.price }}</td>
                 </tr>
-
-                <tr>
-                    <th scope="row">The Kite Runner</th>
-                    <td>Khaled Hosseini</td>
-                    <td>2013</td>
-                    <td>Bloomsbury</td>
-                    <td>371</td>
-                    <td>$5.46</td>
-                </tr>
-
-                <tr>
-                    <th scope="row">The Immortals of Meluha</th>
-                    <td>Amish</td>
-                    <td>2012</td>
-                    <td>Westland</td>
-                    <td>438</td>
-                    <td>$13.99</td>
-                </tr>
-    
-                <tr>
-                    <th scope="row">Inferno</th>
-                    <td>Dan Brown</td>
-                    <td>2013</td>
-                    <td>Doubleday</td>
-                    <td>480</td>
-                    <td>$13.98</td>
-                </tr>
-
             </tbody>
-        </table>
-        <br>
-        <p class="descriptive-text">Add a record</p>
-        <br>
-        <form>
+          </table>
+        </div>
+        
+          
+          <br>
+          
+          <p class="descriptive-text">Add a record</p>
+          <br>
+          
+          <form v-on:submit.prevent="postNewBook">
             <div class="form-group">
-              <label for="formGroupExampleInput">Title</label>
-              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter title of the book">
+              <label for="title" class="form-label">Title</label>
+              <input type="text" class="form-control" id="title" v-model="bookForm.title" placeholder="Enter title of the book">
             </div>
             <div class="form-group">
-              <label for="formGroupExampleInput2">Author</label>
-              <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter the name of the author">
+              <label for="author" class="form-label">Author</label>
+              <input type="text" class="form-control" id="author" v-model="bookForm.author" placeholder="Enter the name of the author">
             </div>
             <div class="form-group">
-                <label for="formGroupExampleInput2">Year</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter the year in which the book was published">
+                <label for="year_published" class="form-label">Year</label>
+                <input type="text" class="form-control" id="year_published" v-model="bookForm.year_published" placeholder="Enter the year in which the book was published">
               </div>
               <div class="form-group">
-                <label for="formGroupExampleInput2">Publisher</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter the name of the publisher">
+                <label for="publisher" class="form-label">Publisher</label>
+                <input type="text" class="form-control" id="publisher" v-model="bookForm.publisher" placeholder="Enter the name of the publisher">
               </div>
               <div class="form-group">
-                <label for="formGroupExampleInput2">Pages</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter the number of pages in the book">
+                <label for="pages" class="form-label">Pages</label>
+                <input type="text" class="form-control" id="pages" v-model="bookForm.pages" placeholder="Enter the number of pages in the book">
               </div>
               <div class="form-group">
-                <label for="formGroupExampleInput2">Price</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter the price of the book">
+                <label for="price" class="form-label">Price</label>
+                <input type="text" class="form-control" id="price" v-model="bookForm.price" placeholder="Enter the price of the book">
               </div>
               <br>
-              <div class="form-group">
-                <button type="submit" class="btn" id="sign-in-button">Submit</button>
-              </div>
+                <button type="submit" class="btn" id="submit-button">Submit</button>
+              <br>
           </form>
+        
+      </div>
     </div>
     <script src="js/tablesort.js"></script>
     <script>
       new Tablesort(document.getElementById('booksTable'));
     </script>
+    <script src="js/books.js"></script>
 </body>
 </html>

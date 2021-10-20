@@ -1,49 +1,50 @@
 const UserInfo = {
     data() {
       return {
-        "person": {},
-        "offers": [
-                {
-                    "id": 1,
-                    "name": "Janet Doe",
-                    "salary": 120000,
-                    "bonus": 9000,
-                    "company":"EY",
-                    "offerDate": "2021-09-08"
-                },
-                {
-                    "id": 2,
-                    "name": "Jordan Doe",
-                    "salary": 80000,
-                    "bonus": 2000,
-                    "company":"IU",
-                    "offerDate": "2021-08-09"
-                }
-            ]
+        "students": [],
+        "selectedStudent": null,
+        "offers": []
         }
     },
-    computed: {
-        prettyBirthday() {
-            return dayjs(this.person.dob.date)
-            .format('D MMM YYYY')
-        }
-    },
+    computed: {},
     methods: {
-        fetchUserData() {
-            fetch('https://randomuser.me/api/')
+        selectedStudent(s) {
+            if(this.selectedStudent==s){
+                return;
+            }
+            this.selectedStudent = s;
+            this.offers = [];
+            this.fetchOfferData(s);
+        },
+        fetchStudentData() {
+            fetch('/api/student/')
             .then( response => response.json() )
             .then( (responseJson) => {
                 console.log(responseJson);
-                this.person = responseJson.results[0];
+                this.students = responseJson;
             })
             .catch( (err) => {
                 console.error(err);
             })
+        },
+        fetchOfferData(s) {
+            fetch('/api/offers/?student=' +s.id)
+            .then( response => response.json() )
+            .then( (responseJson) => {
+                console.log(responseJson);
+                this.offer = responseJson;
+            })
+            .catch( (err) => {
+                console.error(err);
+            })
+            .catch( (error) => {
+                console.error(error);
+            })
         }
     },
     created() {
-        this.fetchUserData();
+        this.fetchStudentData();
     }
 }
   
-Vue.createApp(UserInfo).mount('#appRandom');
+Vue.createApp(UserInfo).mount('#offerApp');
